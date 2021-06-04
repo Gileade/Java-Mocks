@@ -12,8 +12,12 @@ import br.com.gile.leilao.dao.PagamentoDao;
 @Service
 public class GeradorDePagamento {
 
-	@Autowired
 	private PagamentoDao pagamentos;
+
+	@Autowired
+	public GeradorDePagamento(PagamentoDao pagamentos) {
+		this.pagamentos = pagamentos;
+	}
 
 	public void gerarPagamento(Lance lanceVencedor) {
 		LocalDate vencimento = LocalDate.now().plusDays(1);
